@@ -3,10 +3,10 @@ const basiRouter = require("../routers/basic");
 const app=express();
 const mongoose = require('mongoose');
 const dotenv =require("dotenv");
-
+dotenv.config();
 const cor=require("cors");
 
-dotenv.config();
+
 app.use(express.json());
 app.use(cor());
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,7 +26,7 @@ app.get('/ff', (req, res) => {
     res.send('Hello World!')
   })
 const PORT=process.env.PORT || 5000
-mongoose.connect("mongodb+srv://Bus:1234567890@cluster0.tsacw.mongodb.net/BusAttendence?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
+mongoose.connect(process.env.MONGO_URI).then(()=>{
     console.log("mongoose connect");
     app.listen(PORT,()=>{
         console.log("server on :"+PORT);
