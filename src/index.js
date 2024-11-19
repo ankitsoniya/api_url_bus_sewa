@@ -21,6 +21,10 @@ app.get("/ankit",async(req,res)=>{
       
  
 });
+
+app.get('/ff', (req, res) => {
+    res.send('Hello World!')
+  })
 const PORT=process.env.PORT || 5000
 mongoose.connect("mongodb+srv://Bus:1234567890@cluster0.tsacw.mongodb.net/BusAttendence?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
     console.log("mongoose connect");
